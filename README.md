@@ -1,4 +1,4 @@
-# DCSA v0.1.0
+# DCSA v1.0.0a0
 
 > Yet another alternative approach to MVC
 
@@ -15,11 +15,18 @@ DCSA consists of 4 separate parts. Each stands for as follows.
 
 ## Domain
 
-Domain is the domain in the sense of DDD architectural pattern of Eric Evans. This is similar to the model concept of the MVC pattern. This basically handles the data interaction of the software but it's a bit different from the model of MVC.
+Domain is the domain in the sense of DDD architectural pattern of Eric Evans. This is similar to the model concept of the MVC pattern. This basically handles the data interaction of the software but it's a bit different from Model concept of MVC. Google DDD for details.
+
+- Domain should implements all of business logic.
+- Domain shouldn't touch any of visual aspect.
+- Domain can handle any of requests about the Domain model.
 
 ## Component
 
 *Components* (or *Pure Components*) are the classes which only interact with DOMs, jQuery APIs and other Pure Components. They never interact with domain and services (or service components) because they don't "know" about the domain at all. Components can be seen as the wrapper or abstraction of the DOM APIs or jQuery APIs.
+
+- Components don't know anything about Domain, even don't know the names of domain models.
+- If a component needs to change its behaviour depending on the state of domain model, then service or application should inject them into components. Components should never call domain interfaces directly.
 
 ## Service
 
@@ -27,9 +34,17 @@ Domain is the domain in the sense of DDD architectural pattern of Eric Evans. Th
 
 The name has come from the Domain Service in DDD. Domain Service is the class which handles the interaction between Domain Models in the Domain. Service in DCSA terminology handles the interaction between Domain Models as well as Components. Actually Components are like domain models in the world of dom tree (the world of visual components). Then the class which handles domain models of both domain can be seen as Domain Service in the enhanced sense.
 
+- Service can handle both visual things and invoke business logic.
+- Service shouldn't implement business logic itself. Service can use Domain but is not a part of Domain.
+
 ## Application
 
 Application is the ultimate consumer of everything else. Applications use services, components and domain models and only serve directly to the users. In other words classes in the system never use application, the application always use others and never opposite.
+
+- Application can use any other components in the system, such as domain, pure components or services.
+- Application should focus on the flow of the system.
+- Application shouldn't do things in detail. It should delegate details to Service or Components
+- Application should never be used by any other system component.
 
 
 # Hierarchical View
