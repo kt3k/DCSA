@@ -4,7 +4,7 @@
 
 # What is it?
 
-DCSA is the design pattern dedicated for frontend programming. It aims to serve as an alternative to the traditional MVC pattern.
+DCSA is the design pattern for frontend engineering. It aims to serve as an alternative to the traditional MVC pattern.
 
 DCSA consists of 4 separate parts. Each stands for as follows.
 
@@ -64,6 +64,13 @@ Service Components
 Domain | (Pure) Components
 
 ```
+
+# What was wrong about MV* architectures
+
+## Data binding
+
+Data binding itself is ok. It works sometiems. However the actual interaction between models and views are far more complext than what is realized by the data bindings because in the frontend programming views and models have very different lifecycles and are both very complex. Therefore putting too much enphasis on only data bindings limits the ability of the framework.
+
 
 # License
 
