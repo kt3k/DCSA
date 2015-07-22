@@ -4,7 +4,7 @@
 
 # What is it?
 
-DCSA is the design pattern for frontend engineering. It aims to serve as an alternative to the traditional MVC pattern.
+DCSA is the design pattern focused on frontend programming. It aims to serve as an alternative to the traditional MVC pattern.
 
 DCSA consists of 4 separate parts. Each stands for as follows.
 
@@ -65,11 +65,24 @@ Domain | (Pure) Components
 
 ```
 
-# What was wrong about MV* architectures
+# What's different with MVC
 
-## Data binding
+## Similar, just refinement
 
-Data binding itself is ok. It works sometiems. However the actual interaction between models and views are far more complext than what is realized by the data bindings because in the frontend programming views and models have very different lifecycles and are both very complex. Therefore putting too much enphasis on only data bindings limits the ability of the framework.
+DCSA is basically similar to MVC. Domain is, in my view, a refined version of *Model*. Component is similar to *View*, but has more strict rules about its construction and range of the responsibility. Service and Application are similar to *Controller*. Separation of the concern is the major principle behind DCSA as well as in MVC. The difference is that DCSA put emphasis on *more* separation of the concern.
+
+## View is over simplification
+
+View is too simple. Component assumes it has layered structure, which is necessary idea in frontend programming.
+
+## Strict separation of Visuals and Entities
+
+In traditional MVC view often knows too much about entities. For example the rendering function of a view often takes model itself as argument. That was ok in the server side. But in the frontend that kind of implmenetation causes responsibility ambiguity and thus problems.
+
+## Constraints on the consume-provide relationship
+
+In DCSA the relationships between nodes are stricter. Who is the consumer of the interface or who is the provider is defined hierarchically and they shouldn't violate it. So there must be less confusion about who's user and who's provider.
+
 
 
 # License
