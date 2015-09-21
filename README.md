@@ -47,6 +47,7 @@ A service should have one topic and be focused on it which it handles. The inter
 
 Application can be void if the service can directly serve as an application. This structure is necessary only when the services cannot serve the user directly because of the system's requirement.
 
+- Application layer is necessary only when it's technically necessary. If services can directly serve as uppermost interface, then there's no need of Application layer.
 - Application can use any other components in the system, such as domain, pure components or services.
 - Application should focus on the flow of the system.
 - Application shouldn't do things in detail. It should delegate details to Service or Components, business logic to Domain.
@@ -69,7 +70,7 @@ Domain | Components
 
 ```
 
-# What's different with MVC
+# Comparison with MVC
 
 ## Similar, just refinement
 
